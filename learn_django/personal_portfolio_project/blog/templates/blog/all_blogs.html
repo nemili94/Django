@@ -1,0 +1,16 @@
+<h1>Milica's blogs</h1>
+
+{% for blog in blogs %}
+<h2>{{ blog.title }}</h2>
+<h3>{{ blog.date }}</h3>
+{% if blog.summary %}
+<p> {{ blog.summary }} </p>
+{% else %}
+<p> {{ blog.text|truncatechars:100 }} </p>
+{% endif %}
+
+{% if blog.url %}
+<br><a href="{{ blog.url }}">Link</a>
+{% endif %}
+
+{% endfor %}
